@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import MovieCard from "./MovieList";
+import MovieCard from "./MovieCard";
 
 export default class Movie extends Component {
   constructor(props) {
@@ -43,43 +43,14 @@ export default class Movie extends Component {
   };
 
 
-  /*
-         <div className="movie-card">
-          <h2>{title}</h2>
-          <div className="movie-director">
-            Director: <em>{director}</em>
-          </div>
-          <div className="movie-metascore">
-            Metascore: <strong>{metascore}</strong>
-          </div>
-          <h3>Actors</h3>
+  /*  BEFORE MovieCard
 
-          {stars.map(star => (
-            <div key={star} className="movie-star">
-              {star}
-            </div>
-          ))}
-        </div>
-   */
+      above return
+       const { title, director, metascore, stars } = this.state.movie;
 
 
-
-  /*
-      <Link to = {`/movies/${movie.id}`}>
-      <MovieCard movie = {movie}/>
-    </Link>
-
-   */
-
-
-  render() {
-    if (!this.state.movie) {
-      return <div>Loading movie information...</div>;
-    }
-
-    const { title, director, metascore, stars } = this.state.movie;
-    return (
-      <div className="save-wrapper">
+        <MovieCard movie = {this.state.movie}/>
+          replaces
         <div className="movie-card">
           <h2>{title}</h2>
           <div className="movie-director">
@@ -96,6 +67,21 @@ export default class Movie extends Component {
             </div>
           ))}
         </div>
+
+   */
+
+
+
+  render() {
+    if (!this.state.movie) {
+      return <div>Loading movie information...</div>;
+    }
+
+    return (
+      <div className="save-wrapper">
+
+        <MovieCard movie = {this.state.movie}/>
+
         <div className="save-button"
              onClick = {this.saveMovie}
         >Save</div>
