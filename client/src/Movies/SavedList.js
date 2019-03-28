@@ -20,7 +20,7 @@ export default class SavedList extends Component {
             to = {`/movies/${movie.id}`}
             className = 'saved-movie'
             activeClassName = 'saved-active'
-         >  {movie.title}
+          >  {movie.title}
           </NavLink>
 
         ))}

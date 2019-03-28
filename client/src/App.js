@@ -30,7 +30,7 @@ export default class App extends Component {
         <Route path = "/movies/:id"
                component = { props => <Movie
                                         {...props}
-                                       addToSavedList = {this.addToSavedList}
+                                        addToSavedList = {this.addToSavedList}
                                       /> }
         />
       </div>
