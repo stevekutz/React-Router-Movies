@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import MovieCard from "./MovieList";
+import {Link } from 'react-router-dom';
 
 export default class Movie extends Component {
   constructor(props) {
@@ -43,15 +45,9 @@ export default class Movie extends Component {
 
   };
 
-  render() {
-    if (!this.state.movie) {
-      return <div>Loading movie information...</div>;
-    }
 
-    const { title, director, metascore, stars } = this.state.movie;
-    return (
-      <div className="save-wrapper">
-        <div className="movie-card">
+  /*
+         <div className="movie-card">
           <h2>{title}</h2>
           <div className="movie-director">
             Director: <em>{director}</em>
@@ -67,6 +63,33 @@ export default class Movie extends Component {
             </div>
           ))}
         </div>
+   */
+
+
+
+  /*
+      <Link to = {`/movies/${movie.id}`}>
+      <MovieCard movie = {movie}/>
+    </Link>
+
+   */
+
+
+  render() {
+    if (!this.state.movie) {
+      return <div>Loading movie information...</div>;
+    }
+
+    // const { title, director, metascore, stars } = this.state.movie;
+    return (
+      <div className="save-wrapper">
+
+
+        <Link to = {`/movies/${this.state.movie.id}`}>
+          <MovieCard movie = {this.state.movie}/>
+        </Link>
+
+
         <div className="save-button"
              onClick = {this.saveMovie}
         >Save</div>
